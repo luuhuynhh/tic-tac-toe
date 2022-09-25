@@ -68,7 +68,7 @@ function App() {
     <div className="App">
       <ScoreBoard scores={scores} xPlaying={xPlaying} />
       <Board board={board} onClick={gameOver ? resetBoard : handleBoxClick} />
-      <ResetButton resesetBoard={resetBoard} />
+      <ResetButton resetBoard={resetBoard} />
     </div>
   );
 }
