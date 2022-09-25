@@ -3,6 +3,7 @@ import { Board } from "./components/Board"
 import React, { useState } from "react"
 import { ScoreBoard } from './components/ScoreBoard';
 import { ResetButton } from './components/ResetButton';
+import { useToggle } from './hook/customeHook';
 
 function App() {
   const WIN_CONDITIONS = [
@@ -16,7 +17,8 @@ function App() {
     [2, 4, 6],
   ]
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [xPlaying, setXPlaying] = useState(true);
+  // const [xPlaying, setXPlaying] = useState(true);
+  const [xPlaying, toggleXPlaying] = useToggle(true);
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
   const [gameOver, setGameOver] = useState(false);
   const handleBoxClick = (boxId) => {
@@ -42,7 +44,8 @@ function App() {
     }
     // console.log(scores);
     setBoard(updateBoard);
-    setXPlaying(pre => !pre);
+    // setXPlaying(pre => !pre);
+    toggleXPlaying();
   }
 
   const resetBoard = () => {
